@@ -14,13 +14,13 @@ class NLPStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.KeywordExtract = channel.unary_unary(
-        '/nlp.NLP/KeywordExtract',
+    self.ExtractKeywords = channel.unary_unary(
+        '/nlp.NLP/ExtractKeywords',
         request_serializer=nlp__pb2.KeywordRequest.SerializeToString,
         response_deserializer=nlp__pb2.KeywordResponse.FromString,
         )
-    self.KeywordExtractStream = channel.stream_unary(
-        '/nlp.NLP/KeywordExtractStream',
+    self.ExtractKeywordsStream = channel.stream_unary(
+        '/nlp.NLP/ExtractKeywordsStream',
         request_serializer=nlp__pb2.KeywordRequest.SerializeToString,
         response_deserializer=nlp__pb2.KeywordResponse.FromString,
         )
@@ -30,14 +30,14 @@ class NLPServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def KeywordExtract(self, request, context):
+  def ExtractKeywords(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def KeywordExtractStream(self, request_iterator, context):
+  def ExtractKeywordsStream(self, request_iterator, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -47,13 +47,13 @@ class NLPServicer(object):
 
 def add_NLPServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'KeywordExtract': grpc.unary_unary_rpc_method_handler(
-          servicer.KeywordExtract,
+      'ExtractKeywords': grpc.unary_unary_rpc_method_handler(
+          servicer.ExtractKeywords,
           request_deserializer=nlp__pb2.KeywordRequest.FromString,
           response_serializer=nlp__pb2.KeywordResponse.SerializeToString,
       ),
-      'KeywordExtractStream': grpc.stream_unary_rpc_method_handler(
-          servicer.KeywordExtractStream,
+      'ExtractKeywordsStream': grpc.stream_unary_rpc_method_handler(
+          servicer.ExtractKeywordsStream,
           request_deserializer=nlp__pb2.KeywordRequest.FromString,
           response_serializer=nlp__pb2.KeywordResponse.SerializeToString,
       ),

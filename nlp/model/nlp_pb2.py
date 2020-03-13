@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='nlp',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\tnlp.proto\x12\x03nlp\"\x99\x01\n\x0eKeywordRequest\x12.\n\x06method\x18\x01 \x01(\x0e\x32\x1e.nlp.KeywordRequest.MethodType\x12\x10\n\x08sentence\x18\x02 \x01(\t\x12\x0c\n\x04topK\x18\x03 \x01(\x03\x12\x10\n\x08\x61llowPOS\x18\x04 \x03(\t\"%\n\nMethodType\x12\t\n\x05TFIDF\x10\x00\x12\x0c\n\x08TextRank\x10\x01\"w\n\x0fKeywordResponse\x12.\n\x08keywords\x18\x01 \x03(\x0b\x32\x1c.nlp.KeywordResponse.Keyword\x1a\x34\n\x07Keyword\x12\x0c\n\x04word\x18\x01 \x01(\t\x12\x0e\n\x06weight\x18\x02 \x01(\x01\x12\x0b\n\x03pos\x18\x03 \x01(\t2\x87\x01\n\x03NLP\x12;\n\x0eKeywordExtract\x12\x13.nlp.KeywordRequest\x1a\x14.nlp.KeywordResponse\x12\x43\n\x14KeywordExtractStream\x12\x13.nlp.KeywordRequest\x1a\x14.nlp.KeywordResponse(\x01\x62\x06proto3'
+  serialized_pb=b'\n\tnlp.proto\x12\x03nlp\"\x99\x01\n\x0eKeywordRequest\x12.\n\x06method\x18\x01 \x01(\x0e\x32\x1e.nlp.KeywordRequest.MethodType\x12\x10\n\x08sentence\x18\x02 \x01(\t\x12\x0c\n\x04topK\x18\x03 \x01(\x03\x12\x10\n\x08\x61llowPOS\x18\x04 \x03(\t\"%\n\nMethodType\x12\t\n\x05TFIDF\x10\x00\x12\x0c\n\x08TextRank\x10\x01\"w\n\x0fKeywordResponse\x12.\n\x08keywords\x18\x01 \x03(\x0b\x32\x1c.nlp.KeywordResponse.Keyword\x1a\x34\n\x07Keyword\x12\x0c\n\x04word\x18\x01 \x01(\t\x12\x0e\n\x06weight\x18\x02 \x01(\x01\x12\x0b\n\x03pos\x18\x03 \x01(\t2\x89\x01\n\x03NLP\x12<\n\x0f\x45xtractKeywords\x12\x13.nlp.KeywordRequest\x1a\x14.nlp.KeywordResponse\x12\x44\n\x15\x45xtractKeywordsStream\x12\x13.nlp.KeywordRequest\x1a\x14.nlp.KeywordResponse(\x01\x62\x06proto3'
 )
 
 
@@ -212,11 +212,11 @@ _NLP = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=296,
-  serialized_end=431,
+  serialized_end=433,
   methods=[
   _descriptor.MethodDescriptor(
-    name='KeywordExtract',
-    full_name='nlp.NLP.KeywordExtract',
+    name='ExtractKeywords',
+    full_name='nlp.NLP.ExtractKeywords',
     index=0,
     containing_service=None,
     input_type=_KEYWORDREQUEST,
@@ -224,8 +224,8 @@ _NLP = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='KeywordExtractStream',
-    full_name='nlp.NLP.KeywordExtractStream',
+    name='ExtractKeywordsStream',
+    full_name='nlp.NLP.ExtractKeywordsStream',
     index=1,
     containing_service=None,
     input_type=_KEYWORDREQUEST,

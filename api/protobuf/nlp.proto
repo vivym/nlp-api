@@ -25,7 +25,7 @@ message KeywordResponse {
 }
 
 service NLP {
-    rpc KeywordExtract(KeywordRequest) returns (KeywordResponse);
+    rpc ExtractKeywords(KeywordRequest) returns (KeywordResponse);
 
-    rpc KeywordExtractStream(stream KeywordRequest) returns (KeywordResponse);
+    rpc ExtractKeywordsStream(stream KeywordRequest) returns (KeywordResponse);
 }

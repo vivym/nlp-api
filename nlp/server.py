@@ -26,7 +26,7 @@ class NLPServer(nlp_pb2_grpc.NLPServicer):
             keywords=list(map(to_keyword, words))
         )
 
-    def KeywordExtract(self, request, context):
+    def ExtractKeywords(self, request, context):
         return self.extract(
             method=request.method,
             sentence=request.sentence,
@@ -34,7 +34,7 @@ class NLPServer(nlp_pb2_grpc.NLPServicer):
             allow_pos=request.allowPOS,
         )
 
-    def KeywordExtractStream(self, request_iterator, context):
+    def ExtractKeywordsStream(self, request_iterator, context):
         method = nlp_pb2.KeywordRequest.MethodType.TFIDF
         sentence = ""
         top_k = 20
