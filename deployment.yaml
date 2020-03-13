@@ -9,8 +9,8 @@ spec:
   selector:
     app: nlp-api
   ports:
-    - port: 12711
-      targetPort: 12711
+    - port: 12377
+      targetPort: 12377
 
 ---
 
