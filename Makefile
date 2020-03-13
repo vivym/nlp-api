@@ -14,6 +14,11 @@ IMAGE_VER = ${VERSION}-${COMMIT_HASH}
 IMAGE_FULL_NAME = ${REGISTRY_URL}${IMAGE_NAME}:${IMAGE_VER}
 
 
+.PHONY: clean
+clean:
+	@rm -r -f build
+
+
 .PHONY: docker-login
 docker-login:
 	@echo building $(shell date "$(DATE_FMT)")
@@ -22,7 +27,7 @@ docker-login:
 
 
 .PHONY: release
-release:
+release: clean
 	@mkdir build
 
 	@echo
@@ -42,7 +47,7 @@ release:
 	@echo ---------------------------------------------------------------
 	@echo - `date "+%H:%M:%S"` [3] create k8s deployment.yaml
 	@echo ---------------------------------------------------------------
-	@sed 's#__IMAGE_FULL_NAME__#${IMAGE_FULL_NAME}#g;s#__SENTRY_DSN__#${SENTRY_DSN}#g' deployment.yaml > deployment.yaml
+	@sed 's#__IMAGE_FULL_NAME__#${IMAGE_FULL_NAME}#g;s#__SENTRY_DSN__#${SENTRY_DSN}#g' deployment.yaml > build/deployment.yaml
 
 	@echo
 	@echo ---------------------------------------------------------------

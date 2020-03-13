@@ -1,1 +1,1 @@
-# NLP Server (HTTP & gRPC)
+# NLP API (HTTP & gRPC)
