@@ -1,5 +1,7 @@
+import os
 from concurrent import futures
 
+import sentry_sdk
 import grpc
 
 from nlp.model import nlp_pb2, nlp_pb2_grpc
@@ -49,14 +51,19 @@ class NLPServer(nlp_pb2_grpc.NLPServicer):
 
 
 def main():
+    sentry_dsn = os.getenv("APP_SENTRYDSN") or ""
+    grpc_port = os.getenv("APP_GRPC_PORT") or "12377"
+
+    sentry_sdk.init(sentry_dsn)
+
     server = grpc.server(futures.ThreadPoolExecutor())
 
     nlp_pb2_grpc.add_NLPServicer_to_server(NLPServer(), server)
 
-    server.add_insecure_port("0.0.0.0:12377")
+    server.add_insecure_port("0.0.0.0:" + grpc_port)
     server.start()
 
-    print("listening on port: 12377")
+    print("listening on port: " + grpc_port)
 
     server.wait_for_termination()
 
