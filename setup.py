@@ -16,7 +16,7 @@ setup(
     install_requires=[
         "grpcio==1.27.2",
         "jieba==0.42.1",
-        "protobuf==3.11.3",
+        "protobuf==3.15.0",
         "sentry-sdk==0.14.2",
     ]
 )
