@@ -17,6 +17,6 @@ setup(
         "grpcio==1.27.2",
         "jieba==0.42.1",
         "protobuf==3.11.3",
-        "sentry-sdk==0.14.2",
+        "sentry-sdk==1.14.0",
     ]
 )
